@@ -25,11 +25,14 @@ public class AppServiceDelegate implements JavaDelegate {
 	String className = "AppServiceDelegate";
 	DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	String curActivityId = "";
+	String curExecutionId = "";
+	String curProcessInstanceId = "";
 
 	private void write_log(String message) {
-		System.out.println(String.format("[%s] - %s() - %s: %s",
+		System.out.println(String.format("[%s]->%s()->%s->%s->%s: %s",
 				df.format(Calendar.getInstance().getTime()), className,
-				curActivityId, message));
+				this.curActivityId, this.curProcessInstanceId, this.curExecutionId,
+				message));
 	}
 
 	private void show_title(String title, boolean isHead) {
@@ -54,7 +57,10 @@ public class AppServiceDelegate implements JavaDelegate {
 		
 		String activityId = execution.getCurrentActivityId();
 		String activityName = execution.getCurrentActivityName();
+		
+		this.curProcessInstanceId = execution.getProcessInstanceId();
 		this.curActivityId = activityId;
+		this.curExecutionId = execution.getId();
 
 		show_title(String.format(
 				"开始执行定时任务(execution:%s)=> %s(%s)",
