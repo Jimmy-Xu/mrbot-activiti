@@ -23,7 +23,7 @@ public class RESTUtil {
 	public String post(String url, String data, String token) throws Exception {
 		System.out
 				.println(String
-						.format("%s\ncurl -H 'Authorization:Basic %s' -H 'Content-Type: application/json' %s -d '%s'\n%s",
+						.format("%s\ncurl -X POST -H 'Authorization:Basic %s' -H 'Content-Type: application/json' %s -d '%s'\n%s",
 								_splitter,token, url, data,_splitter));
 
 		URL restURL = new URL(url);
@@ -60,7 +60,7 @@ public class RESTUtil {
 	public String put(String url, String data, String token) throws Exception {
 		System.out
 				.println(String
-						.format("%s\ncurl -H 'Authorization:Basic %s' -H 'Content-Type: application/json' %s -d '%s'\n%s",
+						.format("%s\ncurl -X PUT -H 'Authorization:Basic %s' -H 'Content-Type: application/json' %s -d '%s'\n%s",
 								_splitter,token, url, data,_splitter));
 
 		URL restURL = new URL(url);
@@ -116,7 +116,7 @@ public class RESTUtil {
 	public String post2(String url, String json, String token) {
 		System.out
 		.println(String
-				.format("%s\ncurl -H 'Authorization:Basic %s' -H 'Content-Type: application/json' %s -d '%s'\n%s",
+				.format("%s\ncurl -X POST -H 'Authorization:Basic %s' -H 'Content-Type: application/json' %s -d '%s'\n%s",
 						_splitter,token, url, json,_splitter));
 		try {
 			DefaultHttpClient httpClient = new DefaultHttpClient();
@@ -162,7 +162,7 @@ public class RESTUtil {
 	public String put2(String url, String json, String token) {
 		System.out
 		.println(String
-				.format("%s\ncurl -H 'Authorization:Basic %s' -H 'Content-Type: application/json' %s -d '%s'\n%s",
+				.format("%s\ncurl -X PUT -H 'Authorization:Basic %s' -H 'Content-Type: application/json' %s -d '%s'\n%s",
 						_splitter,token, url, json,_splitter));
 		try {
 			DefaultHttpClient httpClient = new DefaultHttpClient();
